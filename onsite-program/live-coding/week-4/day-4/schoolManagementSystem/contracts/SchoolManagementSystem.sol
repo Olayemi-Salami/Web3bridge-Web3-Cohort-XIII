@@ -57,6 +57,7 @@ contract SchoolManagementSystem {
                 return students[i];
             }
         }
+        revert STUDENT_NOT_FOUND();
     }
 
     function update_students_status(uint256 _student_id, Status _new_status) external {

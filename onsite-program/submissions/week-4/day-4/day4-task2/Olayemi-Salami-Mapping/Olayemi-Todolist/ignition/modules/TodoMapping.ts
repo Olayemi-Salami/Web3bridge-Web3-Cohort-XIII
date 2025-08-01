@@ -4,11 +4,11 @@
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
 
 
-const Schoolm = buildModule("Schoolm", (m) => {
+const TodoMapping = buildModule("TodoMapping", (m) => {
 
-  const schoolm = m.contract("Schoolm");
+  const todoMapping = m.contract("TodoMapping")
 
-  return {schoolm};
+  return {todoMapping};
 });
 
-export default Schoolm;
+export default TodoMapping;
