@@ -102,8 +102,8 @@ contract Nft is Context, IERC165, IERC721, IERC721Metadata, Ownable {
     mapping(uint256 => string) private _tokenURIs;
 
     constructor() {
-        _name = "DEERNFT";
-        _symbol = "DEER";
+        _name = "NFT";
+        _symbol = "PIC";
         _currentIndex = 1;
     }
 
