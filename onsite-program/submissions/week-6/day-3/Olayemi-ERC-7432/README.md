@@ -1,13 +1,11 @@
-# Sample Hardhat Project
+# SUBMITTED BY: OLAYEMI SALAMI
+# DEPLOYED ADDRESS: 0x05DAbD6BC5E4ACd451FF37D0A95223c8b14D8942
+# TESTED: RoleNFT
+  #  ✔ mints an NFT with a token URI
+   # ✔ allows the owner to assign a role
+   # ✔ reverts if a non-owner tries to assign a role (52ms)
+   # ✔ returns false if a role has not been assigned
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
 
-Try running some of the following tasks:
+  # 4 passing (401ms)
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.ts
-```
