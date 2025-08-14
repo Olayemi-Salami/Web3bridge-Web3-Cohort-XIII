@@ -6,15 +6,14 @@ import {VRFV2PlusClient} from "@chainlink/contracts/src/v0.8/vrf/dev/libraries/V
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import {IERC1155} from "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
-import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
-contract LootBox is VRFConsumerBaseV2Plus, Ownable {
+contract LootBox is VRFConsumerBaseV2Plus {
     enum RewardType { ERC20, ERC721, ERC1155 }
 
     struct Reward {
         RewardType rewardType;
         address tokenAddress;
-        uint256 amountOrId; // Amount for ERC20/ERC1155, tokenId for ERC721
+        uint256 amountOrId; 
         uint256 weight;
     }
 
@@ -41,7 +40,7 @@ contract LootBox is VRFConsumerBaseV2Plus, Ownable {
         bytes32 keyHash,
         uint256 subscriptionId,
         uint256 _boxFee
-    ) VRFConsumerBaseV2Plus(vrfCoordinator) Ownable(msg.sender) {
+    ) VRFConsumerBaseV2Plus(vrfCoordinator) {
         s_keyHash = keyHash;
         s_subscriptionId = subscriptionId;
         boxFee = _boxFee;
@@ -124,7 +123,7 @@ contract LootBox is VRFConsumerBaseV2Plus, Ownable {
         delete s_requestToUser[requestId];
     }
 
-    // Allow owner to withdraw fees
+   
     function withdrawFees() external onlyOwner {
         payable(owner()).transfer(address(this).balance);
     }
