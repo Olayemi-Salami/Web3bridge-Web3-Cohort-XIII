@@ -54,6 +54,7 @@ contract LootBox is VRFConsumerBaseV2Plus {
             amountOrId: _amountOrId,
             weight: _weight
         }));
+
         totalWeight += _weight;
         emit RewardAdded(rewards.length - 1, _type, _tokenAddress, _amountOrId, _weight);
     }
@@ -86,6 +87,7 @@ contract LootBox is VRFConsumerBaseV2Plus {
                 extraArgs: VRFV2PlusClient._argsToBytes(VRFV2PlusClient.ExtraArgsV1({nativePayment: false}))
             })
         );
+        
         s_requestToUser[requestId] = msg.sender;
         emit BoxOpened(msg.sender, requestId);
     }
@@ -111,7 +113,6 @@ contract LootBox is VRFConsumerBaseV2Plus {
         emit RewardAssigned(user, selectedIndex, selectedReward.rewardType, selectedReward.tokenAddress, selectedReward.amountOrId);
         emit RandomnessFulfilled(requestId, randomWords[0]);
 
-        // Transfer reward
         if (selectedReward.rewardType == RewardType.ERC20) {
             IERC20(selectedReward.tokenAddress).transfer(user, selectedReward.amountOrId);
         } else if (selectedReward.rewardType == RewardType.ERC721) {

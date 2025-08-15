@@ -22,9 +22,7 @@ async function main() {
   
   await vrfMock.addConsumer(subId, await lootBox.getAddress());
 
-  /
-
-
+  
   await lootBox.addReward(0, ZeroAddress, 100, 50); 
 
  
